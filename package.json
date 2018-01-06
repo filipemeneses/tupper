@@ -1,0 +1,44 @@
+{
+  "name": "tupper.js",
+  "version": "1.0.0",
+  "description": "Javascript implementation of Tupper's formula",
+  "main": "dist/tupper.min.js",
+  "author": "Filipe Meneses <flcmeneses@gmail.com>",
+  "keywords": [
+    "tupper",
+    "formula",
+    "self-referential",
+    "pixel",
+    "art"
+  ],
+  "dependencies": {
+    "big-integer": "^1.6.26"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "eslint": "^3.17.1",
+    "eslint-config-standard": "^7.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "yargs": "^10.0.3"
+  },
+  "scripts": {
+    "prepublish": "npm run build-npm",
+    "build-web": "webpack --env build --target web",
+    "build-npm": "webpack --env build --target node",
+    "dev": "webpack --env dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

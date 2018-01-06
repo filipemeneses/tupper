@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  <title>Tupper's formula</title>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Merriweather', serif;
+    color: #2b2740;
+    background-color: #fbfbff;
+  }
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: 0 0 32px 0;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0 0 32px 0;
+    text-align: left;
+  }
+  h3 {
+    margin: 24px 0 0 0;
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid #e7e6ee;
+    margin: 48px 0;
+  }
+  .blank {
+    border: 0;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+  }
+  .container {
+    padding: 64px;
+    width: 570px;
+    margin: 0 auto;
+
+  }
+  .container p {
+    color: #4e4c57;
+    font-size: 13px;
+    font-weight: normal;
+  }
+  .code {
+    background-color: rgb(36, 39, 46);
+    color: rgb(161, 169, 184);
+    padding: 16px;
+    border-radius: 4px;
+  }
+  .inline-code {
+    font-size: 16px;
+    background-color: #f2f2ff;
+    padding: 4px;
+  }
+
+  h3 .inline-code {
+    background-color: transparent;
+    padding-left: 0;
+    font-size: 24px;
+  }
+  .output {
+    white-space: pre-wrap;
+    word-break:break-all;
+    font-family: monospace;
+    width: 570px;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>
+        <strong>
+          Tupper.js
+        </strong>
+      </h1>
+      <h2>
+        <p>This is a javascript implementation of Tupper's formula.</p>
+        <p>A formula that visually represents itself when graphed at a specific location in the (x, y) plane.</p>
+      </h2>
+      <canvas class="tupper" width="530" height="85"></canvas>
+    </header>
+
+    <hr>
+
+    <article>
+      <h3><code class="inline-code">toGraph(Number)</code></h3>
+      <p>This will convert a integer to an array of <code class="inline-code">0</code> and <code class="inline-code">1</code></p>
+      <pre class="code">
+var invader = '356190145855031919348890157738898011538149755602338030'
+var pixels = tupper.toGraph(invader)</pre>
+      <p>Which can later be used to print into a canvas:</p>
+      <canvas class="invader" width="55" height="85"></canvas>
+      <pre class="code">
+pixels.forEach((row, y) => {
+  row.forEach((pixel, x) => {
+    ctx.fillStyle = pixel ? 'black' : 'white';
+    ctx.fillRect(x * 5, y * 5, 5, 5);
+  })
+})</pre>
+      <script type="text/javascript">
+
+      </script>
+    </article>
+
+    <hr>
+
+    <article>
+      <h3><code class="inline-code">toNumber(Array)</code></h3>
+      <p>This will convert an array of <code class="inline-code">0</code> and <code class="inline-code">1</code> into Tupper's decimal</p>
+      <pre class="code">var pixels = tupper.toNumber([[0,0,0,0,0,0,1], ...)</pre>
+      <p>Which can later be used to print into a canvas:</p>
+      <div class="code output">4858450636189713423582095962494202044581400587983244549483093085061934704708809928450644769865524364849997247024915119110411605739177407856919754326571855442057210445735883681829823754139634338225199452191651284348332905131193199953502413758765239264874613394906870130562295813219481113685339535565290850023875092856892694555974281546386510730049106723058933586052544096664351265349363643957125565695936815184334857605266940161251266951421550539554519153785457525756590740540157929001765967965480064427829131488548259914721248506352686630476300
+      </div>
+    </article>
+
+    <hr class="blank">
+
+    <article>
+      <h3>References</h3>
+      <ul>
+        <li>
+          <a href="http://tuppers-formula.tk/">http://tuppers-formula.tk/</a>
+        </li>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula">https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula</a>
+        </li>
+      </ul>
+    </article>
+  </div>
+
+  <script src="./tupper.web.min.js" charset="utf-8"></script>
+  <script>
+  var CUBE_SIZE = 5
+
+  var paintArray = (canvas, number) => {
+    var ctx = canvas.getContext('2d')
+
+    tupper.toGraph(number).forEach((row, y) => {
+      row.forEach((pixel, x) => {
+        ctx.fillStyle = pixel ? 'black' : 'white';
+        ctx.fillRect(x * CUBE_SIZE, y * CUBE_SIZE, CUBE_SIZE, CUBE_SIZE);
+      })
+    })
+  }
+
+  paintArray(document.querySelector('.tupper'), '4858450636189713423582095962494202044581400587983244549483093085061934704708809928450644769865524364849997247024915119110411605739177407856919754326571855442057210445735883681829823754139634338225199452191651284348332905131193199953502413758765239264874613394906870130562295813219481113685339535565290850023875092856892694555974281546386510730049106723058933586052544096664351265349363643957125565695936815184334857605266940161251266951421550539554519153785457525756590740540157929001765967965480064427829131488548259914721248506352686630476300')
+  paintArray(document.querySelector('.invader'), '356190145855031919348890157738898011538149755602338030')
+
+  </script>
+
+</body>
+</html>
