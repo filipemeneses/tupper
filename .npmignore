@@ -3,4 +3,6 @@
 *.json
 src
 docs
-!dist/*
+dist/tupper.web.min.js
+dist/tupper.web.js
+dist/tupper.js

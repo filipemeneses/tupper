@@ -28,6 +28,12 @@
     text-align: left;
   }
   h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 32px 0;
+    text-align: left;
+  }
+  h4 {
     margin: 24px 0 0 0;
   }
   hr {
@@ -65,10 +71,11 @@
     padding: 4px;
   }
 
-  h3 .inline-code {
+  h4 .inline-code {
     background-color: transparent;
     padding-left: 0;
-    font-size: 24px;
+    font-size: 19px;
+    font-weight: normal;
   }
   .output {
     white-space: pre-wrap;
@@ -98,50 +105,71 @@
 
     <hr>
 
-    <article>
-      <h3><code class="inline-code">toGraph(Number)</code></h3>
-      <p>This will convert a integer to an array of <code class="inline-code">0</code> and <code class="inline-code">1</code></p>
-      <pre class="code">
+    <section>
+      <h3>Installation</h3>
+      <article>
+
+        <p><b>On NPM:</b></p>
+        <pre class="code">npm install tupper.js --save</pre>
+        <p><b>On browser:</b></p>
+        <pre class="output code">&lt;script src="https://cdn.rawgit.com/filipemeneses/tupper/b17885ae/dist/tupper.web.min.js" charset="utf-8"&gt;&lt;/script&gt;</pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3>Usage</h3>
+
+      <p><b>On NPM:</b></p>
+      <pre class="code">const tupper = require('tupper.js')</pre>
+      <p><b>On browser will be available as <code class="inline-code">tupper</code></b></p>
+
+      <hr class="blank">
+
+      <article>
+        <h4><code class="inline-code">toGraph(Number)</code></h4>
+        <p>This method will convert a integer to an array of <code class="inline-code">0</code> and <code class="inline-code">1</code></p>
+        <pre class="code">
 var invader = '356190145855031919348890157738898011538149755602338030'
 var pixels = tupper.toGraph(invader)</pre>
-      <p>Which can later be used to print into a canvas:</p>
-      <canvas class="invader" width="55" height="85"></canvas>
-      <pre class="code">
+        <p>Which can later be used to print into a canvas:</p>
+        <canvas class="invader" width="55" height="85"></canvas>
+        <pre class="code">
 pixels.forEach((row, y) => {
   row.forEach((pixel, x) => {
     ctx.fillStyle = pixel ? 'black' : 'white';
     ctx.fillRect(x * 5, y * 5, 5, 5);
   })
 })</pre>
-      <script type="text/javascript">
+      </article>
 
-      </script>
-    </article>
+      <hr>
 
-    <hr>
+      <article>
+        <h4><code class="inline-code">toNumber(Array)</code></h4>
+        <p>This method will convert an array of <code class="inline-code">0</code> and <code class="inline-code">1</code> into Tupper's decimal</p>
+        <pre class="code">var pixels = tupper.toNumber([[0,0,0,0,0,0, ...)</pre>
+        <p>Which can later be used to print into a canvas:</p>
+        <div class="code output">4858450636189713423582095962494202044581400587983244549483093085061934704708809928450644769865524364849997247024915119110411605739177407856919754326571855442057210445735883681829823754139634338225199452191651284348332905131193199953502413758765239264874613394906870130562295813219481113685339535565290850023875092856892694555974281546386510730049106723058933586052544096664351265349363643957125565695936815184334857605266940161251266951421550539554519153785457525756590740540157929001765967965480064427829131488548259914721248506352686630476300
+        </div>
+      </article>
 
-    <article>
-      <h3><code class="inline-code">toNumber(Array)</code></h3>
-      <p>This will convert an array of <code class="inline-code">0</code> and <code class="inline-code">1</code> into Tupper's decimal</p>
-      <pre class="code">var pixels = tupper.toNumber([[0,0,0,0,0,0,1], ...)</pre>
-      <p>Which can later be used to print into a canvas:</p>
-      <div class="code output">4858450636189713423582095962494202044581400587983244549483093085061934704708809928450644769865524364849997247024915119110411605739177407856919754326571855442057210445735883681829823754139634338225199452191651284348332905131193199953502413758765239264874613394906870130562295813219481113685339535565290850023875092856892694555974281546386510730049106723058933586052544096664351265349363643957125565695936815184334857605266940161251266951421550539554519153785457525756590740540157929001765967965480064427829131488548259914721248506352686630476300
-      </div>
-    </article>
+      <hr class="blank">
+      <hr>
 
-    <hr class="blank">
-
-    <article>
-      <h3>References</h3>
-      <ul>
-        <li>
-          <a href="http://tuppers-formula.tk/">http://tuppers-formula.tk/</a>
-        </li>
-        <li>
-          <a href="https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula">https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula</a>
-        </li>
-      </ul>
-    </article>
+      <article>
+        <h3>References</h3>
+        <ul>
+          <li>
+            <a href="http://tuppers-formula.tk/">http://tuppers-formula.tk/</a>
+          </li>
+          <li>
+            <a href="https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula">https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula</a>
+          </li>
+        </ul>
+      </article>
+    </section>
   </div>
 
   <script src="./tupper.web.min.js" charset="utf-8"></script>
