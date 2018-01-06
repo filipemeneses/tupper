@@ -1,9 +1,8 @@
 {
-  "name": "tupper.js",
-  "version": "1.0.1",
+  "name": "tupper",
+  "version": "1.0.2",
   "description": "Javascript implementation of Tupper's formula",
   "main": "dist/tupper.min.js",
-  "author": "Filipe Meneses <flcmeneses@gmail.com>",
   "keywords": [
     "tupper",
     "formula",
@@ -38,7 +37,10 @@
     "build-npm": "webpack --env build --target node",
     "dev": "webpack --env dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Filipe Meneses <flcmeneses@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filipemeneses/tupper.git"
+  }
 }

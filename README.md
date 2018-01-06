@@ -1,4 +1,4 @@
-# Tupper.js
+# Tupper
 
 This is a javascript implementation of Tupper's formula.
 A formula that visually represents itself when graphed at a specific location in the (x, y) plane.
@@ -10,7 +10,7 @@ A formula that visually represents itself when graphed at a specific location in
 **On NPM:**
 
 ```sh
-npm install tupper.js --save
+npm install tupper --save
 ```
 
 **On browser:**
@@ -27,7 +27,7 @@ npm install tupper.js --save
 On NPM:
 
 ```js
-const tupper = require('tupper.js')
+const tupper = require('tupper')
 ```
 
 On browser will be available as `tupper`.
